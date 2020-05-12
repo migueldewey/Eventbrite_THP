@@ -1,16 +1,16 @@
 class Event < ApplicationRecord
 	has_many :attendances
 	has_many :users, through: :attendances
-	belongs_to :admin, class_name "User"
+	belongs_to :admin, class_name: "User"
 
 	validates :start_date,
-	precence: true,
+	precence: true
 	#start_date_valid
 	#start_date_present
 
 	validates :duration,
-	precence: true,
-	validate :duration_multiple_of_5?
+	precence: true
+	#validate :duration_multiple_of_5?
 	#positive
 
 	validates :title,
@@ -22,7 +22,7 @@ class Event < ApplicationRecord
 	length: {minimum: 20, maximum: 1000, message: "Veuillez saisir une description de longueur comprise entre 20 et 1000 caractères"}
 
 	validates :price,
-	precence: true,
+	precence: true
 	#value: {minimum: 1, maximum: 100, message: "Le prix ne peut être inférieur à 1 ni supérieur à 1000"}
 
 	validates :location,

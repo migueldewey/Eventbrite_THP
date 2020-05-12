@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
 	has_many :attendances
 	has_many :events, through: :attendances
-	has_many :envents, foregin_key: "admin_id" class_name: "Event"
+	has_many :envents, foregin_key: "admin_id", class_name: "Event"
 
 	validates :email, 
     uniqueness: true,
@@ -21,12 +21,12 @@ class User < ApplicationRecord
 
     validates :first_name,
     presence: true,
-    length: {in: 2..30},
+    length: {in: 2..30}
     # # exclusion: {in: /^[-+]?\d*$/}
 
 	validates :last_name,
     presence: true,
-    length: {in: 2..30},
+    length: {in: 2..30}
     # # exclusion: {in: /^[-+]?\d*$/}
 
     def welcome_send
