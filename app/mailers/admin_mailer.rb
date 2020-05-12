@@ -1,13 +1,13 @@
-class AttendanceMailer < ApplicationMailer
+class AdminMailer < ApplicationMailer
 	default from: 'no-reply@monsite.fr'
  
-  def inscrption_email(user,event)
+  def admin_email(event)
   	@event = event #on recoupere l'événement 
-    @user = user  
+    @admin = event.admin  
 
     @url  = 'http://monsite.fr/event' #L'url de Mon site/login
 
     #Envoyer le mail
-    mail(to: @user.email, subject: 'Inscription à un événement !') 
+    mail(to: @admin, subject: 'Inscription à ton événement !') 
   end
 end

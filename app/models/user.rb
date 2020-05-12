@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
 	has_many :attendances
 	has_many :events, through: :attendances
-	#has_many :envents class_name "admin"
+	has_many :envents, foregin_key: "admin_id" class_name: "Event"
 
 	validates :email, 
     uniqueness: true,
